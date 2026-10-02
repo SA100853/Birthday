@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Naushin ❤️</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    text-align:center;
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   FLOATING BACKGROUND HEARTS
+========================= */
+
+.bg-heart{
+    position:fixed;
+    color:#ff1744;
+    font-size:20px;
+    opacity:.75;
+    pointer-events:none;
+    z-index:0;
+    animation:floatHeart linear infinite;
+    text-shadow:
+        0 0 5px #ff1744,
+        0 0 15px #ff1744,
+        0 0 30px #ff1744;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:translateY(110vh) scale(.5) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    85%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-15vh) scale(1.2) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+
+    position:relative;
+    z-index:1;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80,0,15,.35),
+            #000 65%
+        );
+}
+
+.big-heart{
+    font-size:70px;
+
+    animation:heartbeat 1.2s infinite;
+
+    filter:
+        drop-shadow(0 0 10px red)
+        drop-shadow(0 0 25px red);
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+
+}
+
+.hero h1{
+    font-size:clamp(2.5rem,8vw,5rem);
+
+    margin:15px 0;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744;
+}
+
+.hero p{
+    font-size:1.2rem;
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.birthday-date{
+
+    margin:20px 0;
+
+    padding:12px 25px;
+
+    border:1px solid #ff1744;
+
+    border-radius:30px;
+
+    color:#fff;
+
+    font-size:1.15rem;
+
+    background:rgba(255,0,40,.08);
+
+    box-shadow:
+        0 0 10px rgba(255,0,40,.5),
+        inset 0 0 10px rgba(255,0,40,.15);
+}
+
+.birthday-date span{
+    color:#ff3158;
+    font-weight:bold;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+
+    width:90%;
+    max-width:700px;
+
+    margin:25px auto;
+
+    padding:30px 20px;
+
+    background:#080808;
+
+    border:1px solid #3b1118;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 20px rgba(255,0,50,.08);
+
+    position:relative;
+    z-index:1;
+}
+
+h2{
+    color:#ff3158;
+    margin-bottom:15px;
+
+    text-shadow:
+        0 0 10px rgba(255,0,50,.4);
+}
+
+p{
+    line-height:1.7;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    background:#e50935;
+
+    color:white;
+
+    border:none;
+
+    padding:13px 25px;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    margin:10px;
+
+    transition:.3s;
+
+    box-shadow:
+        0 0 10px rgba(255,0,50,.3);
+}
+
+button:hover{
+
+    background:#ff1744;
+
+    transform:scale(1.05);
+
+    box-shadow:
+        0 0 20px rgba(255,0,50,.7);
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift{
+
+    font-size:90px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    display:inline-block;
+}
+
+.gift:hover{
+
+    transform:
+        scale(1.15)
+        rotate(-8deg);
+
+    filter:
+        drop-shadow(0 0 15px red);
+}
+
+.hidden{
+    display:none;
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+#gameArea{
+
+    position:relative;
+
+    height:300px;
+
+    background:
+        radial-gradient(
+            circle,
+            #250008,
+            #050505
+        );
+
+    border:1px solid #4d101b;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:15px;
+}
+
+.gameHeart{
+
+    position:absolute;
+
+    font-size:38px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:pop .25s;
+
+    filter:
+        drop-shadow(0 0 8px red);
+}
+
+@keyframes pop{
+
+    from{
+        transform:scale(0);
+    }
+
+    to{
+        transform:scale(1);
+    }
+
+}
+
+.score{
+
+    font-size:18px;
+
+    margin:10px;
+}
+
+#result{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-top:15px;
+
+    color:#ff3158;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#030303;
+
+    color:white;
+
+    padding:50px 20px;
+
+    border-top:1px solid #3b1118;
+
+    position:relative;
+
+    z-index:1;
+}
+
+footer h1{
+
+    margin:15px;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 10px red,
+        0 0 25px red;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===================================
+     FLOATING HEARTS
+=================================== -->
+
+<div class="bg-heart" style="left:5%;animation-duration:9s;">❤️</div>
+<div class="bg-heart" style="left:15%;animation-duration:12s;animation-delay:2s;">♥</div>
+<div class="bg-heart" style="left:27%;animation-duration:10s;animation-delay:4s;">❤️</div>
+<div class="bg-heart" style="left:40%;animation-duration:14s;animation-delay:1s;">♥</div>
+<div class="bg-heart" style="left:53%;animation-duration:11s;animation-delay:5s;">❤️</div>
+<div class="bg-heart" style="left:67%;animation-duration:13s;animation-delay:3s;">♥</div>
+<div class="bg-heart" style="left:80%;animation-duration:10s;animation-delay:6s;">❤️</div>
+<div class="bg-heart" style="left:92%;animation-duration:15s;animation-delay:2s;">♥</div>
+
+
+<!-- ===================================
+     HERO
+=================================== -->
+
+<div class="hero">
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+    <p>
+        For my favourite person...
+    </p>
+
+
+    <h1>
+
+        Happy Birthday<br>
+
+        Naushin 🎂
+
+    </h1>
+
+
+    <!-- BIRTHDAY DATE -->
+
+    <div class="birthday-date">
+
+        🎂 <span>2 October 2001</span> 🎂
+
+    </div>
+
+
+    <p>
+
+        My Wife • My Love • My Happiness 💕
+
+    </p>
+
+</div>
+
+
+
+<!-- ===================================
+     CUTE MESSAGE
+=================================== -->
+
+<section>
+
+    <h2>
+        🌹 Meri Jaan
+    </h2>
+
+
+    <p>
+
+        Tum meri zindagi ki sabse<br>
+
+        <strong>
+            khoobsurat wajah ho. ❤️
+        </strong>
+
+    </p>
+
+
+    <br>
+
+
+    <p>
+
+        Aur meri favourite<br>
+
+        <strong>
+            lifetime headache bhi. 😂💕
+        </strong>
+
+    </p>
+
+</section>
+
+
+
+<!-- ===================================
+     GIFT
+=================================== -->
+
+<section>
+
+    <h2>
+        🎁 A Little Surprise
+    </h2>
+
+
+    <p>
+        Gift par click karo, Madam Ji 😌
+    </p>
+
+
+    <div class="gift" id="gift">
+
+        🎁
+
+    </div>
+
+
+    <div id="giftMessage" class="hidden">
+
+        <div class="big-heart">
+            💖
+        </div>
+
+
+        <h2>
+            I Choose You.
+        </h2>
+
+
+        <p>
+
+            Today ❤️<br>
+
+            Tomorrow ❤️<br>
+
+            Always ♾️
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <small>
+                Refund & replacement available nahi hai 😂
+            </small>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================
+     GAME
+=================================== -->
+
+<section>
+
+    <h2>
+        🎮 Catch My Love!
+    </h2>
+
+
+    <p>
+        10 seconds mein mere hearts pakdo ❤️
+    </p>
+
+
+    <div class="score">
+
+        ❤️ Score:
+        <b id="score">0</b>
+
+        &nbsp;&nbsp;
+
+        ⏱️
+        <b id="time">10</b>s
+
+    </div>
+
+
+    <button id="startBtn">
+
+        Start Game 💕
+
+    </button>
+
+
+    <div id="gameArea"></div>
+
+
+    <div id="result"></div>
+
+</section>
+
+
+
+<!-- ===================================
+     SHAYARI
+=================================== -->
+
+<section>
+
+    <h2>
+        💌 For Naushin
+    </h2>
+
+
+    <p>
+
+        तेरी हँसी मेरी खुशी बन जाए, ❤️
+
+        <br><br>
+
+        तेरा साथ मेरी ज़िंदगी बन जाए।
+
+        <br><br>
+
+        रब से बस इतनी सी दुआ है मेरी,
+
+        <br><br>
+
+        <strong>
+            हर जन्म में तू ही मेरी हमसफ़र बन जाए। 💍
+        </strong>
+
+    </p>
+
+</section>
+
+
+
+<!-- ===================================
+     FOOTER
+=================================== -->
+
+<footer>
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+
+    <h1>
+
+        Happy Birthday<br>
+
+        Naushin
+
+    </h1>
+
+
+    <p>
+
+        2 October 2001 🎂
+
+    </p>
+
+
+    <br>
+
+
+    <p>
+
+        Allah tumhe hamesha khush rakhe. 🤲❤️
+
+    </p>
+
+
+    <br>
+
+
+    <p>
+
+        <strong>
+            I Love You, Meri Jaan 💋
+        </strong>
+
+    </p>
+
+
+    <br>
+
+
+    <p>
+
+        — Your Husband, Sarfaraj 💍
+
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* ===================================
+   GIFT
+=================================== */
+
+const gift =
+document.getElementById("gift");
+
+
+gift.addEventListener("click",()=>{
+
+    gift.innerHTML="💝";
+
+
+    document
+    .getElementById("giftMessage")
+    .classList.remove("hidden");
+
+});
+
+
+
+/* ===================================
+   GAME
+=================================== */
+
+const area =
+document.getElementById("gameArea");
+
+const startBtn =
+document.getElementById("startBtn");
+
+const scoreDisplay =
+document.getElementById("score");
+
+const timeDisplay =
+document.getElementById("time");
+
+const result =
+document.getElementById("result");
+
+
+let score=0;
+
+let time=10;
+
+let playing=false;
+
+let heartInterval;
+
+let timerInterval;
+
+
+
+startBtn.addEventListener(
+    "click",
+    startGame
+);
+
+
+
+function startGame(){
+
+    if(playing) return;
+
+
+    playing=true;
+
+    score=0;
+
+    time=10;
+
+
+    scoreDisplay.textContent=score;
+
+    timeDisplay.textContent=time;
+
+    result.textContent="";
+
+    area.innerHTML="";
+
+    startBtn.disabled=true;
+
+
+    heartInterval=setInterval(
+        createHeart,
+        550
+    );
+
+
+    timerInterval=setInterval(()=>{
+
+        time--;
+
+        timeDisplay.textContent=time;
+
+
+        if(time<=0){
+
+            endGame();
+
+        }
+
+    },1000);
+
+}
+
+
+
+function createHeart(){
+
+    const heart=
+    document.createElement("div");
+
+
+    heart.className=
+    "gameHeart";
+
+
+    const hearts=[
+        "❤️",
+        "💖",
+        "💕",
+        "💗"
+    ];
+
+
+    heart.textContent=
+    hearts[
+        Math.floor(
+            Math.random()*hearts.length
+        )
+    ];
+
+
+    heart.style.left=
+    Math.random()*85+"%";
+
+
+    heart.style.top=
+    Math.random()*75+"%";
+
+
+    heart.addEventListener(
+        "click",
+        ()=>{
+
+            if(!playing) return;
+
+            score++;
+
+            scoreDisplay.textContent=
+            score;
+
+            heart.remove();
+
+        }
+    );
+
+
+    area.appendChild(heart);
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },900);
+
+}
+
+
+
+function endGame(){
+
+    playing=false;
+
+
+    clearInterval(
+        heartInterval
+    );
+
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    area.innerHTML="";
+
+
+    startBtn.disabled=false;
+
+    startBtn.textContent=
+    "Play Again 💕";
+
+
+    if(score>=12){
+
+        result.innerHTML=
+        "🏆 Naushin Won! ❤️<br>"+
+        "Prize: Unlimited kisses from husband 😘😂";
+
+    }
+
+    else if(score>=7){
+
+        result.innerHTML=
+        "😍 So much love caught!<br>"+
+        "Prize: One tight hug 🫂❤️";
+
+    }
+
+    else{
+
+        result.innerHTML=
+        "😂 Hearts miss ho gaye!<br>"+
+        "Koi baat nahi... mera dil already tumhare paas hai ❤️";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
